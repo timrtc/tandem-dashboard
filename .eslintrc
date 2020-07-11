@@ -23,7 +23,10 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {},
+  "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "react/prop-types": "off"
+  },
   "settings": {
     "react": {
       "version": "detect"

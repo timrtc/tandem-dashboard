@@ -1,5 +1,5 @@
 import * as SUT from './statistics';
-import dataset from '../data-1234.json';
+import dataset from '../../public/data-1234.json';
 
 describe('statistics', () => {
   let data: number[];
