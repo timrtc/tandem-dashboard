@@ -1,6 +1,8 @@
 import React from 'react';
 import useAppState from 'lib/hooks/useAppState';
 
+import './DataCard.scss';
+
 interface Props {
   title: string;
   calculation: (data: number[]) => number;

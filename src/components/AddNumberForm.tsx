@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import useAppState from 'lib/hooks/useAppState';
 
+import './AddNumberForm.scss';
+
 /**
  * Add a number to the global state data set.
  */
@@ -17,7 +19,7 @@ const AddNumberForm: React.FC = () => {
   return (
     <div className="AddNumberForm">
       <form onSubmit={handleSubmit}>
-        <label>Add number to data set</label>
+        <label>Add Number</label>
         <input
           type="text"
           value={number}

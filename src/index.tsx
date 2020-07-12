@@ -4,6 +4,8 @@ import App from './App';
 import { AppProvider } from 'lib/store';
 import * as serviceWorker from './serviceWorker';
 
+import './index.scss';
+
 ReactDOM.render(
   <React.StrictMode>
     <AppProvider>
