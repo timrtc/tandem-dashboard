@@ -2,17 +2,6 @@ type Counter = { [key: string]: number };
 type ModeResult = { mode: number; count: number };
 
 /**
- * Standardize calculation results by truncating to 6 signifcant decimal places.
- * TODO: consider returning raw result and standardizing in view component.
- *
- * @param {number} n
- * @returns {number}
- */
-function standardize(n: number): number {
-  return Number(n.toFixed(6));
-}
-
-/**
  * Get the average value for a numeric array.
  *
  * @param {number[]} numbers
@@ -31,8 +20,7 @@ function getAverage(numbers: number[]): number {
  * @returns {number}
  */
 export function calculateMean(data: number[]): number {
-  const mean = getAverage(data);
-  return standardize(mean);
+  return getAverage(data);
 }
 
 /**
@@ -55,7 +43,7 @@ export function calculateMedian(data: number[]): number {
     median = (median + sorted[middle - 1]) / 2;
   }
 
-  return standardize(median);
+  return median;
 }
 
 /**
@@ -69,12 +57,10 @@ export function calculateMedian(data: number[]): number {
 export function calculateStdDeviation(data: number[]): number {
   const avg = getAverage(data);
 
-  const deviations = data.map((n) => Math.pow(n - avg, 2));
+  const deviations = data.map(n => Math.pow(n - avg, 2));
   const variance = getAverage(deviations);
 
-  const stdDeviation = Math.sqrt(variance);
-
-  return standardize(stdDeviation);
+  return Math.sqrt(variance);
 }
 
 /**
@@ -96,7 +82,7 @@ export function calculateMode(data: number[]): number {
   let result: ModeResult | undefined;
 
   // find the number with the highest frequency of occurrences.
-  Object.keys(counter).forEach((k) => {
+  Object.keys(counter).forEach(k => {
     const n = Number(k);
 
     const current: ModeResult = {
@@ -122,5 +108,5 @@ export function calculateMode(data: number[]): number {
     }
   });
 
-  return result !== undefined ? standardize(result.mode) : 0;
+  return result !== undefined ? result.mode : 0;
 }
