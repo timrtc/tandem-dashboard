@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { Mean, Median, Mode, StandardDeviation } from 'components/stats';
+import React from 'react';
+import DataCard from 'components/DataCard';
+import AddNumberForm from 'components/AddNumberForm';
 
-interface Response {
-  data: number[];
-}
+import {
+  calculateMean,
+  calculateMedian,
+  calculateMode,
+  calculateStdDeviation,
+} from 'lib/statistics';
 
 const App: React.FC = () => {
-  const [numbers, setNumbers] = useState<number[] | null>(null);
-
-  useEffect(() => {
-    fetch('data-1234.json')
-      .then<Response>(res => res.json())
-      .then(result => setNumbers(result.data));
-  }, []);
-
   return (
     <div className="App">
-      {numbers && (
-        <>
-          <Mean dataSet={numbers} />
-          <Median dataSet={numbers} />
-          <StandardDeviation dataSet={numbers} />
-          <Mode dataSet={numbers} />
-        </>
-      )}
+      <h1>Tandem Dashboard</h1>
+      <DataCard title="Mean" calculation={calculateMean} />
+      <DataCard title="Median" calculation={calculateMedian} />
+      <DataCard title="Mode" calculation={calculateMode} />
+      <DataCard
+        title="Standard Deviation"
+        calculation={calculateStdDeviation}
+      />
+      <AddNumberForm />
     </div>
   );
 };
