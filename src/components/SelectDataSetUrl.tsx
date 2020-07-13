@@ -18,7 +18,7 @@ const SelectDataSetUrl: React.FC = () => {
 
   return (
     <form className="SelectDataSetUrl">
-      <label>Select Dataset</label>
+      <label>Dataset</label>
       <select onChange={handleChange} defaultValue={state.url}>
         {options.map((o, i) => (
           <option key={i} value={o}>
