@@ -2,8 +2,6 @@ import React from 'react';
 import { DataSetUrl } from 'lib/common';
 import useAppState from 'lib/hooks/useAppState';
 
-import './SelectDataSetUrl.scss';
-
 /**
  * A drop-down to change the loaded data set.
  */
@@ -19,7 +17,7 @@ const SelectDataSetUrl: React.FC = () => {
   const options: DataSetUrl[] = ['data-1234.json', 'data-4321.json'];
 
   return (
-    <div className="SelectDataSetUrl">
+    <form className="SelectDataSetUrl">
       <label>Select Dataset</label>
       <select onChange={handleChange} defaultValue={state.url}>
         {options.map((o, i) => (
@@ -28,7 +26,7 @@ const SelectDataSetUrl: React.FC = () => {
           </option>
         ))}
       </select>
-    </div>
+    </form>
   );
 };
 

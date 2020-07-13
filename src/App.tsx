@@ -1,7 +1,7 @@
 import React from 'react';
+import Navbar from 'components/Navbar';
 import DataCard from 'components/DataCard';
 import AddNumberForm from 'components/AddNumberForm';
-import SelectDataSetUrl from 'components/SelectDataSetUrl';
 
 import {
   calculateMean,
@@ -10,13 +10,10 @@ import {
   calculateStdDeviation,
 } from 'lib/statistics';
 
-import './App.scss';
-
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Tandem Dashboard</h1>
-      <SelectDataSetUrl />
+      <Navbar />
 
       <div className="data-cards">
         <DataCard title="Mean" calculation={calculateMean} />

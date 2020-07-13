@@ -1,16 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+$sm-width: 848px;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100vh;
 }
 
-@media screen and (max-width: 980px) {
-  body {
-    padding: 0 20px;
+.Navbar {
+  background-color: #333;
+  color: #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  form {
+    label {
+      margin-right: 4px;
+    }
+
+    select {
+      border: none;
+      padding: 0 8px;
+    }
+  }
+
+  @media screen and (max-width: $sm-width) {
+    flex-direction: column;
+    padding: 0;
+
+    h1 { padding: 4px 12px; }
+
+    form {
+      background-color: #777;
+      margin-top: 12px;
+      width: 100%;
+      padding: 8px 40px;
+    }
+  }
+}
+
+.data-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.DataCard {
+  border: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  min-width: 400px;
+  margin: 12px;
+
+  .card-header {
+    color: #444;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .card-text {
+    color: #666;
+  }
+
+  @media screen and (max-width: $sm-width) {
+    min-height: 100px;
+  }
+}
+
+.AddNumberForm {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  margin-top: 40px;
+
+  label {
+    font-weight: bold;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 8px;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  button {
+    padding: 8px;
   }
 }
