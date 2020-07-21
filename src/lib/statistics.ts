@@ -74,7 +74,7 @@ export function calculateStdDeviation(data: number[]): number {
 export function calculateMode(data: number[]): number {
   // get the number of occurrences for each number in the set.
   const counter = data.reduce<Counter>((agg, n) => {
-    agg[n] = (agg[n] ?? 0) + n;
+    agg[n] = (agg[n] ?? 0) + 1;
     return agg;
   }, {});
 
